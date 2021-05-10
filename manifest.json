@@ -22,14 +22,38 @@
     "48": "/images/icon48.png",
     "128": "/images/icon128.png"
   },
-  "options_page": "options.html",
   "commands": {
-    "_execute_action": {
+    "switch-to-rcv-tab": {
       "suggested_key": {
         "default": "Ctrl+Shift+F",
-        "mac": "MacCtrl+Shift+F"
+        "mac": "Command+Shift+F"
       },
-      "description": "Opens popup"
+      "description": "Switch to RCV tab",
+      "global": false
+    },
+    "toggle-rcv-mute": {
+      "suggested_key": {
+        "default": "Alt+Shift+M",
+        "mac": "Command+Shift+M"
+      },
+      "description": "Toggle RCV microphone mute",
+      "global": false
+    },
+    "toggle-rcv-camera": {
+      "suggested_key": {
+        "default": "Alt+Shift+V",
+        "mac": "Command+Shift+V"
+      },
+      "description": "Toggle RCV camera on/off",
+      "global": false
+    },
+    "toggle-rcv-sharing": {
+      "suggested_key": {
+        "default": "Alt+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Start/stop RCV screen sharing",
+      "global": false
     }
   },
   "content_scripts": [

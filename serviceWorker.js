@@ -1,3 +1,5 @@
+self.importScripts('commands.js');
+
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (chrome?.system?.cpu?.getInfo) {
@@ -9,3 +11,9 @@ chrome.runtime.onMessage.addListener(
         return true;
     }
 );
+
+chrome.commands.onCommand.addListener(function(command) {
+    if (command in commands) {
+        commands[command]?.();
+    }
+});

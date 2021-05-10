@@ -4,28 +4,46 @@
     <title>RC Video Companion</title>
     <style>
         body {
+            width: 300px;
+        }
+        main > div {
+            margin: 10px 0;
+        }
+        main > div > button {
             width: 200px;
+            padding: 4px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button + span {
+            margin-left: 15px;
+        }
+        main > p > button {
+            border: none;
+            background: none;
+            color: dodgerblue;
+            text-decoration: underline;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 <main>
     <div>
-        <button id="activateRcvTab">To RCV tab</button>
+        <button id="switch-to-rcv-tab">Switch To RCV tab</button><span></span>
     </div>
     <div>
-        <button id="toggleMute">Toggle Mute</button>
+        <button id="toggle-rcv-mute">Toggle Mic Mute</button><span></span>
     </div>
     <div>
-        <button id="toggleSharing" disabled>Start/Stop Screen Sharing</button>
+        <button id="toggle-rcv-camera">Toggle Camera On/Off</button><span></span>
     </div>
     <div>
-        <label>
-            <input type="checkbox" id="enableGlobalShortcuts" disabled>
-            Enable Global Shortcuts
-        </label>
+        <button id="toggle-rcv-sharing">Start/Stop Screen Sharing</button><span></span>
     </div>
+    <p style="text-align:center"><button id="configureShortcuts">Configure Shortcuts</button></p>
 </main>
+<script src="commands.js"></script>
 <script src="popup.js"></script>
 </body>
 </html>

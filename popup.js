@@ -1,36 +1,22 @@
-// Initialize button with user's preferred color
-let controls = Object.fromEntries(
-    ['activateRcvTab', 'toggleMute', 'toggleSharing', 'enableGlobalShortcuts'].map(
-        id => [id, document.getElementById(id)]
-    )
-)
+chrome.commands.getAll(allCommands => {
+    Object.entries(commands).forEach(([id, handler]) => {
+        const element = document.getElementById(id);
+        if (!element) return;
+        const shortcut = allCommands.find(cmd => cmd.name === id)?.shortcut;
+        if (!handler) {
+            element.disabled = true;
+        } else {
+            element.addEventListener('click', handler);
+            if (shortcut) {
+                element.nextElementSibling.innerText = `[${shortcut}]`;
+            }
+        }
+    });
+})
 
-async function getRcvTab() {
-    const tabs = await chrome.tabs.query({ status: 'complete', title: 'RingCentral Video' });
-
-    if (tabs.length > 0) {
-        const inMeetingTab = tabs.find(tab => tab.url.includes('/conf/on/'));
-
-        return inMeetingTab ?? tabs[0];
-    } else {
-        return null;
-    }
-}
-
-// When the button is clicked, inject setPageBackgroundColor into current page
-controls.activateRcvTab.addEventListener('click', async () => {
-    const tab = await getRcvTab();
-
-    if (tab) {
-        chrome.tabs.update(tab.id, { highlighted: true });
-        chrome.windows.update(tab.windowId, { focused: true });
-    }
-});
-
-controls.toggleMute.addEventListener('click', async () => {
-    const tab = await getRcvTab();
-
-    if (tab) {
-        chrome.tabs.sendMessage(tab.id, 'toggleMute');
-    }
+document.getElementById('configureShortcuts').addEventListener('click', () => {
+    chrome.tabs.create({
+        url: 'chrome://extensions/configureCommands',
+        active: true
+    });
 });
