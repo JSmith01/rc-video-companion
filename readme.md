@@ -2,12 +2,13 @@
 
 Source for RC Video Companion - chrome extension that simplifies work with RingCentral Video service from a browser.
 
-Features following hotkeys/buttons:
- * Fast switch to RCV tab from anywhere (in meeting tab is preferred)
- * Mute/unmute (within Chrome by default, can be set to global OS hotkey)
- * Camera on/off (the same as previous)
- * Start/stop screen sharing (the same as previous)
+Features:
+ * Fast switch to RCV tab from anywhere button/hotkey (in meeting tab is preferred)
+ * Mute/unmute button/hotkey (within Chrome by default, can be set to global OS hotkey)
+ * Camera on/off button/hotkey (the same as previous)
+ * Start/stop screen sharing button/hotkey (the same as previous)
  * Hotkeys customization
+ * CPU load provisioning (to allow client to minimize power consumption)
 
 
 ## Installation
