@@ -17,9 +17,3 @@ Features:
 2. Go to Chrome three dots menu -> More Tools -> Extensions
 3. Enable "Developer mode" in top right corner there
 4. Click on the "Load unpacked" button and enjoy.
-
-
-## License
-
-MIT (C) Dmitry Zlygin
-All trademarks are property of their respective owners.
