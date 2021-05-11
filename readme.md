@@ -18,11 +18,8 @@ Features:
 3. Enable "Developer mode" in top right corner there
 4. Click on the "Load unpacked" button and enjoy.
 
-or
-
-Install extension from Chrome Web Store (is not available right now)
-
 
 ## License
 
 MIT (C) Dmitry Zlygin
+All trademarks are property of their respective owners.
