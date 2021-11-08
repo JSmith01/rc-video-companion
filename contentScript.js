@@ -1,16 +1,3 @@
-window.addEventListener('message', e => {
-    if (e.data === 'requestCpuInfo') {
-        chrome.runtime.sendMessage(
-            'requestCpuInfo',
-            cpuInfo => window.postMessage({ cpuInfo }, '*')
-        )
-    }
-});
-
-const script = document.createElement('script');
-script.src = chrome.runtime.getURL('initCpuInfo.js');
-document.documentElement.appendChild(script);
-
 const commandButtons = {
     toggleMute: 'button[data-at=muteAudioBtn]',
     toggleCamera: 'button[data-at=muteVideoBtn]',

@@ -6,7 +6,7 @@
   "background": {
     "service_worker": "serviceWorker.js"
   },
-  "permissions": ["scripting", "tabs", "system.cpu"],
+  "permissions": ["tabs"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -60,12 +60,6 @@
     {
       "matches": ["https://v.ringcentral.com/*"],
       "js": ["contentScript.js"]
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "matches": ["https://v.ringcentral.com/*"],
-      "resources": ["initCpuInfo.js"]
     }
   ]
 }
