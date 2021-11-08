@@ -1,10 +1,15 @@
 async function getRcvTab() {
-    const tabs = await chrome.tabs.query({ status: 'complete', title: 'RingCentral Video' });
+    const tabs = await chrome.tabs.query({ status: 'complete' });
+    const filteredTabs = tabs.filter(tab => tab.title.startsWith('RingCentral Video'));
 
-    if (tabs.length > 0) {
-        const inMeetingTab = tabs.find(tab => tab.url.includes('/conf/on/'));
+    if (filteredTabs.length > 0) {
+        const inMeetingTab = filteredTabs.find(
+            tab => tab.title.startsWith('RingCentral Video:')
+                ? tab.url === 'about:blank'
+                : tab.url.includes('/conf/on/')
+        );
 
-        return inMeetingTab ?? tabs[0];
+        return inMeetingTab ?? filteredTabs[0];
     } else {
         return null;
     }
