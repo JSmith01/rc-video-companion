@@ -5,3 +5,17 @@ chrome.commands.onCommand.addListener(function(command) {
         commands[command]?.();
     }
 });
+
+chrome.runtime.onMessage.addListener(message => {
+    switch (message?.type) {
+        case 'no-audio':
+            setNoAudioNotification();
+            break;
+        case 'has-audio':
+            setHasAudioNotification();
+            break;
+        case 'muted-audio':
+            setMutedAudioNotification();
+            break;
+    }
+});

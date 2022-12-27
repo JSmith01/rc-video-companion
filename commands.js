@@ -34,6 +34,8 @@ const makeToggle = command => async function toggleCommand() {
     if (tab) {
         chrome.tabs.sendMessage(tab.id, command);
     }
+    // chrome.action.setBadgeText({ text: 'A' });
+    // chrome.action.setBadgeBackgroundColor({ color: 'green' });
 }
 
 const toggleRcvMute = makeToggle('toggleMute');
@@ -42,6 +44,20 @@ const toggleRcvCamera = makeToggle('toggleCamera');
 async function toggleRcvSharing() {
     const tabId = await switchToRcvTab();
     chrome.tabs.sendMessage(tabId, 'toggleSharing');
+}
+
+function setNoAudioNotification() {
+    chrome.action.setBadgeText({ text: '' });
+}
+
+function setHasAudioNotification() {
+    chrome.action.setBadgeText({ text: 'A' });
+    chrome.action.setBadgeBackgroundColor({ color: 'green' });
+}
+
+function setMutedAudioNotification() {
+    chrome.action.setBadgeText({ text: 'M' });
+    chrome.action.setBadgeBackgroundColor({ color: 'tomato' });
 }
 
 const commands = {
