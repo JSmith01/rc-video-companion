@@ -1,7 +1,7 @@
 {
   "name": "RC Video Companion",
   "description": "Use RC Video with ease",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 3,
   "background": {
     "service_worker": "serviceWorker.js"
